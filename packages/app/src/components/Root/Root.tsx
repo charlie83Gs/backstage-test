@@ -21,6 +21,8 @@ import ExtensionIcon from '@material-ui/icons/Extension';
 import MapIcon from '@material-ui/icons/MyLocation';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
+import DoneOutlineICon from '@material-ui/icons/DoneOutline';
+import BuildOutlinedIcon from '@material-ui/icons/BuildOutlined';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import { NavLink } from 'react-router-dom';
@@ -91,14 +93,22 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
+        <SidebarItem icon={DoneOutlineICon} to="devportal" text="Developer Portal!" />
         {/* End global nav */}
         <SidebarDivider />
         <SidebarScrollWrapper>
           <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
         </SidebarScrollWrapper>
+
+      </SidebarGroup>
+      <SidebarDivider />
+
+      <SidebarGroup icon={<BuildOutlinedIcon />} label="Menu">
+        <SidebarItem icon={ExtensionIcon} to="api-docs" text="Sidebar test Apis ..." />
       </SidebarGroup>
       <SidebarSpace />
       <SidebarDivider />
+
       <SidebarGroup
         label="Settings"
         icon={<UserSettingsSignInAvatar />}

@@ -36,6 +36,15 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInProviderConfig, SignInPage } from '@backstage/core-components';
 
+// Css customization
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import {pgTheme} from './theme/pg';
+import { ExampleIcon } from './assets/icons/CustomIcons';
+
+// Homepage plugin
+import { HomepageCompositionRoot } from '@backstage/plugin-home';
+import { HomePage } from './components/home/HomePage';
+
 const app = createApp({
   apis,
   bindRoutes({ bind }) {
@@ -66,6 +75,19 @@ const app = createApp({
         }}
       />
     ),
+  },
+  themes: [{
+    id: 'my-theme',
+    title: 'My Custom Theme',
+    variant: 'light',
+    Provider: ({ children }) => (
+      <ThemeProvider theme={pgTheme}>
+        <CssBaseline>{children}</CssBaseline>
+      </ThemeProvider>
+    ),
+  }],
+  icons: {
+    github: ExampleIcon,
   },
 });
 
